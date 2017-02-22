@@ -1,47 +1,8 @@
-#**Finding Lane Lines on the Road** 
-
-##Writeup Template
-
-###You can use this file as a template for your writeup if you want to submit it as a markdown file. But feel free to use some other method and submit a pdf if you prefer.
-
----
-
-**Finding Lane Lines on the Road**
-
-The goals / steps of this project are the following:
-* Make a pipeline that finds lane lines on the road
-* Reflect on your work in a written report
-
-
-[//]: # (Image References)
-
-[image1]: ./examples/grayscale.jpg "Grayscale"
-
----
-
 ### Reflection
 
-###1. Describe your pipeline. As part of the description, explain how you modified the draw_lines() function.
+###1. There are some method which was used in this project. In this project,a function will be defined to solve the problem which can find the lines of any color. Firstly,the color of the image will be change to gray, and a OpenCV's method which named Canny edge detector will be used to mark all edges of the image which color is changed in last step.Then,the vertices will be sitting to ignore some edges which are useless.Secondly,the important red lines will be found by the Hough transform method,and mix this lines and the original image in one image. Finally,write the image on video.
 
-My pipeline consisted of 5 steps. First, I converted the images to grayscale, then I .... 
-
-In order to draw a single line on the left and right lanes, I modified the draw_lines() function by ...
-
-If you'd like to include images to show how the pipeline works, here is how to include an image: 
-
-![alt text][image1]
+###2. My code has an important shortcoming,my code just can find the straight line, if the line type is curve line, my code will be dead such as in the challenge video. I think it maybe need check the line is straight or not and choose use line method or use ellipse method of OpenCV, but i have no idea how to do that.
 
 
-###2. Identify potential shortcomings with your current pipeline
-
-
-One potential shortcoming would be what would happen when ... 
-
-Another shortcoming could be ...
-
-
-###3. Suggest possible improvements to your pipeline
-
-A possible improvement would be to ...
-
-Another potential improvement could be to ...
+###3. My line always is not continue that have a huge different with the example video. I think it maybe can use some method to draw a whole line when we use the Hough transform get two points. If it use other language I maybe can solve but I'm not good at python.
